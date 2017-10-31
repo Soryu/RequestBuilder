@@ -1,5 +1,5 @@
 @testable import RequestBuilder
-import KhanlouPromise
+import Promise
 
 struct MockURLSessionError: Error {}
 

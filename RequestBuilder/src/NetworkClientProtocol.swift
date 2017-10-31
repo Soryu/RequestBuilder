@@ -1,5 +1,5 @@
 import Foundation
-import KhanlouPromise
+import Promise
 
 public protocol NetworkClientProtocol {
     

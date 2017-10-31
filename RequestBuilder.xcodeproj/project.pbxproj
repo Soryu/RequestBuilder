@@ -18,6 +18,7 @@
 		DA44DDBB1E2AC56B00E79A32 /* RequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA44DDB71E2AC56B00E79A32 /* RequestBuilderTests.swift */; };
 		DACEBFBA1F9B8B0F00B419F6 /* ClientRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACEBFB91F9B8B0F00B419F6 /* ClientRequestBuilder.swift */; };
 		DACEC1F91FA8C5EB00B419F6 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACEC1F81FA8C5EB00B419F6 /* Promise.framework */; };
+		DACEC1FC1FA8CABC00B419F6 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACEC1F81FA8C5EB00B419F6 /* Promise.framework */; };
 		F65C82C21E2A373D00A6DE4F /* RequestBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F65C82B81E2A373D00A6DE4F /* RequestBuilder.framework */; };
 		F65C82C91E2A373D00A6DE4F /* RequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = F65C82BB1E2A373D00A6DE4F /* RequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F65C82C21E2A373D00A6DE4F /* RequestBuilder.framework in Frameworks */,
+				DACEC1FC1FA8CABC00B419F6 /* Promise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +191,7 @@
 				F65C82BD1E2A373D00A6DE4F /* Sources */,
 				F65C82BE1E2A373D00A6DE4F /* Frameworks */,
 				F65C82BF1E2A373D00A6DE4F /* Resources */,
+				DACEC1FB1FA8CA8200B419F6 /* carthage copy-frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,6 +261,22 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		DACEC1FA1FA8C68600B419F6 /* carthage copy-frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Promise.framework",
+			);
+			name = "carthage copy-frameworks";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Promise.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		DACEC1FB1FA8CA8200B419F6 /* carthage copy-frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -473,6 +492,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RequestBuilderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = soryu2.net.RequestBuilderTests;
@@ -485,6 +508,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RequestBuilderTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = soryu2.net.RequestBuilderTests;

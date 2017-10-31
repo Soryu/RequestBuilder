@@ -1,5 +1,5 @@
 import Foundation
-import KhanlouPromise
+import Promise
 
 public typealias JSONType = Any // arrays and dicts
 
