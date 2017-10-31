@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		DA1661051ED386540073FC7C /* NetworkClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1661041ED386540073FC7C /* NetworkClientProtocol.swift */; };
-		DA17F5981F9B5246008BDF59 /* KhanlouPromise.h in Headers */ = {isa = PBXBuildFile; fileRef = DA17F5961F9B5246008BDF59 /* KhanlouPromise.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DA17F59E1F9B52B1008BDF59 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17F59C1F9B52B1008BDF59 /* Promise.swift */; };
-		DA17F59F1F9B52B1008BDF59 /* Promise+Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA17F59D1F9B52B1008BDF59 /* Promise+Extras.swift */; };
-		DA17F5A11F9B52EF008BDF59 /* KhanlouPromise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA17F5941F9B5245008BDF59 /* KhanlouPromise.framework */; };
 		DA1E8E221E2AAB2E00875D8B /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E8E1F1E2AAB2E00875D8B /* NetworkClient.swift */; };
 		DA1E8E231E2AAB2E00875D8B /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E8E201E2AAB2E00875D8B /* RequestBehavior.swift */; };
 		DA1E8E241E2AAB2E00875D8B /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E8E211E2AAB2E00875D8B /* RequestBuilder.swift */; };
@@ -21,18 +17,12 @@
 		DA44DDBA1E2AC56B00E79A32 /* NetworkClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA44DDB61E2AC56B00E79A32 /* NetworkClientTests.swift */; };
 		DA44DDBB1E2AC56B00E79A32 /* RequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA44DDB71E2AC56B00E79A32 /* RequestBuilderTests.swift */; };
 		DACEBFBA1F9B8B0F00B419F6 /* ClientRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACEBFB91F9B8B0F00B419F6 /* ClientRequestBuilder.swift */; };
+		DACEC1F91FA8C5EB00B419F6 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACEC1F81FA8C5EB00B419F6 /* Promise.framework */; };
 		F65C82C21E2A373D00A6DE4F /* RequestBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F65C82B81E2A373D00A6DE4F /* RequestBuilder.framework */; };
 		F65C82C91E2A373D00A6DE4F /* RequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = F65C82BB1E2A373D00A6DE4F /* RequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DA17F5A21F9B52F5008BDF59 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F65C82AF1E2A373D00A6DE4F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DA17F5931F9B5245008BDF59;
-			remoteInfo = KhanlouPromise;
-		};
 		F65C82C31E2A373D00A6DE4F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F65C82AF1E2A373D00A6DE4F /* Project object */;
@@ -44,11 +34,6 @@
 
 /* Begin PBXFileReference section */
 		DA1661041ED386540073FC7C /* NetworkClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClientProtocol.swift; sourceTree = "<group>"; };
-		DA17F5941F9B5245008BDF59 /* KhanlouPromise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KhanlouPromise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA17F5961F9B5246008BDF59 /* KhanlouPromise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KhanlouPromise.h; sourceTree = "<group>"; };
-		DA17F5971F9B5246008BDF59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA17F59C1F9B52B1008BDF59 /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
-		DA17F59D1F9B52B1008BDF59 /* Promise+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+Extras.swift"; sourceTree = "<group>"; };
 		DA1E8E1F1E2AAB2E00875D8B /* NetworkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		DA1E8E201E2AAB2E00875D8B /* RequestBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBehavior.swift; sourceTree = "<group>"; };
 		DA1E8E211E2AAB2E00875D8B /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
@@ -58,8 +43,7 @@
 		DA44DDB61E2AC56B00E79A32 /* NetworkClientTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkClientTests.swift; sourceTree = "<group>"; };
 		DA44DDB71E2AC56B00E79A32 /* RequestBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilderTests.swift; sourceTree = "<group>"; };
 		DACEBFB91F9B8B0F00B419F6 /* ClientRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRequestBuilder.swift; sourceTree = "<group>"; };
-		DACEC0091F9BEAF000B419F6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		DACEC00A1F9BEAF000B419F6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		DACEC1F81FA8C5EB00B419F6 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Build/iOS/Promise.framework; sourceTree = "<group>"; };
 		F65C82B81E2A373D00A6DE4F /* RequestBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RequestBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F65C82BB1E2A373D00A6DE4F /* RequestBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestBuilder.h; sourceTree = "<group>"; };
 		F65C82BC1E2A373D00A6DE4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,18 +52,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DA17F5901F9B5245008BDF59 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F65C82B41E2A373D00A6DE4F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA17F5A11F9B52EF008BDF59 /* KhanlouPromise.framework in Frameworks */,
+				DACEC1F91FA8C5EB00B419F6 /* Promise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,22 +71,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DA17F5951F9B5246008BDF59 /* KhanlouPromise */ = {
-			isa = PBXGroup;
-			children = (
-				DA17F59C1F9B52B1008BDF59 /* Promise.swift */,
-				DA17F59D1F9B52B1008BDF59 /* Promise+Extras.swift */,
-				DA17F5961F9B5246008BDF59 /* KhanlouPromise.h */,
-				DA17F5971F9B5246008BDF59 /* Info.plist */,
-				DACEC0091F9BEAF000B419F6 /* LICENSE */,
-				DACEC00A1F9BEAF000B419F6 /* README.md */,
-			);
-			path = KhanlouPromise;
-			sourceTree = "<group>";
-		};
 		DA17F5A01F9B52EF008BDF59 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DACEC1F81FA8C5EB00B419F6 /* Promise.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -150,7 +115,6 @@
 			children = (
 				F65C82BA1E2A373D00A6DE4F /* RequestBuilder */,
 				F65C82C51E2A373D00A6DE4F /* RequestBuilderTests */,
-				DA17F5951F9B5246008BDF59 /* KhanlouPromise */,
 				F65C82B91E2A373D00A6DE4F /* Products */,
 				DA17F5A01F9B52EF008BDF59 /* Frameworks */,
 			);
@@ -161,7 +125,6 @@
 			children = (
 				F65C82B81E2A373D00A6DE4F /* RequestBuilder.framework */,
 				F65C82C11E2A373D00A6DE4F /* RequestBuilderTests.xctest */,
-				DA17F5941F9B5245008BDF59 /* KhanlouPromise.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,14 +152,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		DA17F5911F9B5245008BDF59 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				DA17F5981F9B5246008BDF59 /* KhanlouPromise.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F65C82B51E2A373D00A6DE4F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -208,24 +163,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DA17F5931F9B5245008BDF59 /* KhanlouPromise */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DA17F5991F9B5246008BDF59 /* Build configuration list for PBXNativeTarget "KhanlouPromise" */;
-			buildPhases = (
-				DA17F58F1F9B5245008BDF59 /* Sources */,
-				DA17F5901F9B5245008BDF59 /* Frameworks */,
-				DA17F5911F9B5245008BDF59 /* Headers */,
-				DA17F5921F9B5245008BDF59 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = KhanlouPromise;
-			productName = KhanlouPromise;
-			productReference = DA17F5941F9B5245008BDF59 /* KhanlouPromise.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		F65C82B71E2A373D00A6DE4F /* RequestBuilder */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F65C82CC1E2A373D00A6DE4F /* Build configuration list for PBXNativeTarget "RequestBuilder" */;
@@ -234,11 +171,11 @@
 				F65C82B41E2A373D00A6DE4F /* Frameworks */,
 				F65C82B51E2A373D00A6DE4F /* Headers */,
 				F65C82B61E2A373D00A6DE4F /* Resources */,
+				DACEC1FA1FA8C68600B419F6 /* carthage copy-frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DA17F5A31F9B52F5008BDF59 /* PBXTargetDependency */,
 			);
 			name = RequestBuilder;
 			productName = RequestBuilder;
@@ -273,11 +210,6 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Stanley Rost";
 				TargetAttributes = {
-					DA17F5931F9B5245008BDF59 = {
-						CreatedOnToolsVersion = 9.0;
-						LastSwiftMigration = 0900;
-						ProvisioningStyle = Automatic;
-					};
 					F65C82B71E2A373D00A6DE4F = {
 						CreatedOnToolsVersion = 8.2.1;
 						LastSwiftMigration = 0820;
@@ -303,19 +235,11 @@
 			targets = (
 				F65C82B71E2A373D00A6DE4F /* RequestBuilder */,
 				F65C82C01E2A373D00A6DE4F /* RequestBuilderTests */,
-				DA17F5931F9B5245008BDF59 /* KhanlouPromise */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DA17F5921F9B5245008BDF59 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		F65C82B61E2A373D00A6DE4F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,16 +256,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXSourcesBuildPhase section */
-		DA17F58F1F9B5245008BDF59 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+/* Begin PBXShellScriptBuildPhase section */
+		DACEC1FA1FA8C68600B419F6 /* carthage copy-frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA17F59F1F9B52B1008BDF59 /* Promise+Extras.swift in Sources */,
-				DA17F59E1F9B52B1008BDF59 /* Promise.swift in Sources */,
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Promise.framework",
+			);
+			name = "carthage copy-frameworks";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Promise.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
 		F65C82B31E2A373D00A6DE4F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -369,11 +303,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DA17F5A31F9B52F5008BDF59 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DA17F5931F9B5245008BDF59 /* KhanlouPromise */;
-			targetProxy = DA17F5A21F9B52F5008BDF59 /* PBXContainerItemProxy */;
-		};
 		F65C82C41E2A373D00A6DE4F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = F65C82B71E2A373D00A6DE4F /* RequestBuilder */;
@@ -382,73 +311,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		DA17F59A1F9B5246008BDF59 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = KhanlouPromise/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.soryu2.KhanlouPromise;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		DA17F59B1F9B5246008BDF59 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = KhanlouPromise/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = net.soryu2.KhanlouPromise;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		F65C82CA1E2A373D00A6DE4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -569,6 +431,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RequestBuilder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -589,6 +455,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RequestBuilder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -626,15 +496,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DA17F5991F9B5246008BDF59 /* Build configuration list for PBXNativeTarget "KhanlouPromise" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				DA17F59A1F9B5246008BDF59 /* Debug */,
-				DA17F59B1F9B5246008BDF59 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		F65C82B21E2A373D00A6DE4F /* Build configuration list for PBXProject "RequestBuilder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
