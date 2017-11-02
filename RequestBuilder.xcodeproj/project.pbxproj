@@ -19,6 +19,14 @@
 		DACEBFBA1F9B8B0F00B419F6 /* ClientRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACEBFB91F9B8B0F00B419F6 /* ClientRequestBuilder.swift */; };
 		DACEC1F91FA8C5EB00B419F6 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACEC1F81FA8C5EB00B419F6 /* Promise.framework */; };
 		DACEC1FC1FA8CABC00B419F6 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACEC1F81FA8C5EB00B419F6 /* Promise.framework */; };
+		F61A60D41FAB2CED00A8F91E /* RequestBuilder_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = F61A60D21FAB2CED00A8F91E /* RequestBuilder_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F61A60D91FAB2D8A00A8F91E /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61A60D81FAB2D8A00A8F91E /* Promise.framework */; };
+		F61A60DB1FAB2F2000A8F91E /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E8E1F1E2AAB2E00875D8B /* NetworkClient.swift */; };
+		F61A60DC1FAB2F2000A8F91E /* NetworkClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1661041ED386540073FC7C /* NetworkClientProtocol.swift */; };
+		F61A60DD1FAB2F2000A8F91E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E8E201E2AAB2E00875D8B /* RequestBehavior.swift */; };
+		F61A60DE1FAB2F2000A8F91E /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E8E211E2AAB2E00875D8B /* RequestBuilder.swift */; };
+		F61A60DF1FAB2F2000A8F91E /* ClientRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACEBFB91F9B8B0F00B419F6 /* ClientRequestBuilder.swift */; };
+		F61A60E01FAB2F2000A8F91E /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA44DDAA1E2AB7F100E79A32 /* URLSessionExtension.swift */; };
 		F65C82C21E2A373D00A6DE4F /* RequestBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F65C82B81E2A373D00A6DE4F /* RequestBuilder.framework */; };
 		F65C82C91E2A373D00A6DE4F /* RequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = F65C82BB1E2A373D00A6DE4F /* RequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -45,6 +53,10 @@
 		DA44DDB71E2AC56B00E79A32 /* RequestBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilderTests.swift; sourceTree = "<group>"; };
 		DACEBFB91F9B8B0F00B419F6 /* ClientRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRequestBuilder.swift; sourceTree = "<group>"; };
 		DACEC1F81FA8C5EB00B419F6 /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Build/iOS/Promise.framework; sourceTree = "<group>"; };
+		F61A60D01FAB2CED00A8F91E /* RequestBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RequestBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F61A60D21FAB2CED00A8F91E /* RequestBuilder_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestBuilder_macOS.h; sourceTree = "<group>"; };
+		F61A60D31FAB2CED00A8F91E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F61A60D81FAB2D8A00A8F91E /* Promise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Promise.framework; path = Carthage/Build/Mac/Promise.framework; sourceTree = "<group>"; };
 		F65C82B81E2A373D00A6DE4F /* RequestBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RequestBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F65C82BB1E2A373D00A6DE4F /* RequestBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestBuilder.h; sourceTree = "<group>"; };
 		F65C82BC1E2A373D00A6DE4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -53,6 +65,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F61A60CC1FAB2CED00A8F91E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F61A60D91FAB2D8A00A8F91E /* Promise.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F65C82B41E2A373D00A6DE4F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,6 +96,7 @@
 		DA17F5A01F9B52EF008BDF59 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F61A60D81FAB2D8A00A8F91E /* Promise.framework */,
 				DACEC1F81FA8C5EB00B419F6 /* Promise.framework */,
 			);
 			name = Frameworks;
@@ -112,11 +133,21 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		F61A60D11FAB2CED00A8F91E /* RequestBuilder-macOS */ = {
+			isa = PBXGroup;
+			children = (
+				F61A60D21FAB2CED00A8F91E /* RequestBuilder_macOS.h */,
+				F61A60D31FAB2CED00A8F91E /* Info.plist */,
+			);
+			path = "RequestBuilder-macOS";
+			sourceTree = "<group>";
+		};
 		F65C82AE1E2A373D00A6DE4F = {
 			isa = PBXGroup;
 			children = (
 				F65C82BA1E2A373D00A6DE4F /* RequestBuilder */,
 				F65C82C51E2A373D00A6DE4F /* RequestBuilderTests */,
+				F61A60D11FAB2CED00A8F91E /* RequestBuilder-macOS */,
 				F65C82B91E2A373D00A6DE4F /* Products */,
 				DA17F5A01F9B52EF008BDF59 /* Frameworks */,
 			);
@@ -127,6 +158,7 @@
 			children = (
 				F65C82B81E2A373D00A6DE4F /* RequestBuilder.framework */,
 				F65C82C11E2A373D00A6DE4F /* RequestBuilderTests.xctest */,
+				F61A60D01FAB2CED00A8F91E /* RequestBuilder.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -154,6 +186,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		F61A60CD1FAB2CED00A8F91E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F61A60D41FAB2CED00A8F91E /* RequestBuilder_macOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F65C82B51E2A373D00A6DE4F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -165,6 +205,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		F61A60CF1FAB2CED00A8F91E /* RequestBuilder-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F61A60D71FAB2CED00A8F91E /* Build configuration list for PBXNativeTarget "RequestBuilder-macOS" */;
+			buildPhases = (
+				F61A60CB1FAB2CED00A8F91E /* Sources */,
+				F61A60CC1FAB2CED00A8F91E /* Frameworks */,
+				F61A60CD1FAB2CED00A8F91E /* Headers */,
+				F61A60CE1FAB2CED00A8F91E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RequestBuilder-macOS";
+			productName = "RequestBuilder-macOS";
+			productReference = F61A60D01FAB2CED00A8F91E /* RequestBuilder.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		F65C82B71E2A373D00A6DE4F /* RequestBuilder */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F65C82CC1E2A373D00A6DE4F /* Build configuration list for PBXNativeTarget "RequestBuilder" */;
@@ -213,6 +271,10 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Stanley Rost";
 				TargetAttributes = {
+					F61A60CF1FAB2CED00A8F91E = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
 					F65C82B71E2A373D00A6DE4F = {
 						CreatedOnToolsVersion = 8.2.1;
 						LastSwiftMigration = 0820;
@@ -237,12 +299,20 @@
 			projectRoot = "";
 			targets = (
 				F65C82B71E2A373D00A6DE4F /* RequestBuilder */,
+				F61A60CF1FAB2CED00A8F91E /* RequestBuilder-macOS */,
 				F65C82C01E2A373D00A6DE4F /* RequestBuilderTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F61A60CE1FAB2CED00A8F91E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F65C82B61E2A373D00A6DE4F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -295,6 +365,19 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F61A60CB1FAB2CED00A8F91E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F61A60DF1FAB2F2000A8F91E /* ClientRequestBuilder.swift in Sources */,
+				F61A60DB1FAB2F2000A8F91E /* NetworkClient.swift in Sources */,
+				F61A60E01FAB2F2000A8F91E /* URLSessionExtension.swift in Sources */,
+				F61A60DC1FAB2F2000A8F91E /* NetworkClientProtocol.swift in Sources */,
+				F61A60DD1FAB2F2000A8F91E /* RequestBehavior.swift in Sources */,
+				F61A60DE1FAB2F2000A8F91E /* RequestBuilder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F65C82B31E2A373D00A6DE4F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,6 +413,68 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		F61A60D51FAB2CED00A8F91E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "RequestBuilder-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.soryu2.RequestBuilder-macOS";
+				PRODUCT_NAME = RequestBuilder;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		F61A60D61FAB2CED00A8F91E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "RequestBuilder-macOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.soryu2.RequestBuilder-macOS";
+				PRODUCT_NAME = RequestBuilder;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
 		F65C82CA1E2A373D00A6DE4F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -457,7 +602,7 @@
 				INFOPLIST_FILE = RequestBuilder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = soryu2.net.RequestBuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = net.soryu2.RequestBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -481,7 +626,7 @@
 				INFOPLIST_FILE = RequestBuilder/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = soryu2.net.RequestBuilder;
+				PRODUCT_BUNDLE_IDENTIFIER = net.soryu2.RequestBuilder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
@@ -523,6 +668,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F61A60D71FAB2CED00A8F91E /* Build configuration list for PBXNativeTarget "RequestBuilder-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F61A60D51FAB2CED00A8F91E /* Debug */,
+				F61A60D61FAB2CED00A8F91E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F65C82B21E2A373D00A6DE4F /* Build configuration list for PBXProject "RequestBuilder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
