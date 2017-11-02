@@ -20,7 +20,6 @@
 		DACEC1F91FA8C5EB00B419F6 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACEC1F81FA8C5EB00B419F6 /* Promise.framework */; };
 		DACEC1FC1FA8CABC00B419F6 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DACEC1F81FA8C5EB00B419F6 /* Promise.framework */; };
 		F61A60D41FAB2CED00A8F91E /* RequestBuilder_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = F61A60D21FAB2CED00A8F91E /* RequestBuilder_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F61A60D91FAB2D8A00A8F91E /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61A60D81FAB2D8A00A8F91E /* Promise.framework */; };
 		F61A60DB1FAB2F2000A8F91E /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E8E1F1E2AAB2E00875D8B /* NetworkClient.swift */; };
 		F61A60DC1FAB2F2000A8F91E /* NetworkClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1661041ED386540073FC7C /* NetworkClientProtocol.swift */; };
 		F61A60DD1FAB2F2000A8F91E /* RequestBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E8E201E2AAB2E00875D8B /* RequestBehavior.swift */; };
@@ -29,6 +28,7 @@
 		F61A60E01FAB2F2000A8F91E /* URLSessionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA44DDAA1E2AB7F100E79A32 /* URLSessionExtension.swift */; };
 		F65C82C21E2A373D00A6DE4F /* RequestBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F65C82B81E2A373D00A6DE4F /* RequestBuilder.framework */; };
 		F65C82C91E2A373D00A6DE4F /* RequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = F65C82BB1E2A373D00A6DE4F /* RequestBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6B5AE041FAB36CF00DEA25A /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F61A60D81FAB2D8A00A8F91E /* Promise.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F61A60D91FAB2D8A00A8F91E /* Promise.framework in Frameworks */,
+				F6B5AE041FAB36CF00DEA25A /* Promise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +523,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -576,6 +577,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F61A60CF1FAB2CED00A8F91E"
-               BuildableName = "RequestBuilder_macOS.framework"
+               BuildableName = "RequestBuilder.framework"
                BlueprintName = "RequestBuilder-macOS"
                ReferencedContainer = "container:RequestBuilder.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F61A60CF1FAB2CED00A8F91E"
-            BuildableName = "RequestBuilder_macOS.framework"
+            BuildableName = "RequestBuilder.framework"
             BlueprintName = "RequestBuilder-macOS"
             ReferencedContainer = "container:RequestBuilder.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F61A60CF1FAB2CED00A8F91E"
-            BuildableName = "RequestBuilder_macOS.framework"
+            BuildableName = "RequestBuilder.framework"
             BlueprintName = "RequestBuilder-macOS"
             ReferencedContainer = "container:RequestBuilder.xcodeproj">
          </BuildableReference>
