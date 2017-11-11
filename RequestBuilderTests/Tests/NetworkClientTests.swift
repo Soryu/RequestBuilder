@@ -216,7 +216,46 @@ class NetworkClientTests: XCTestCase {
         XCTAssertFalse(verifyingBehavior.calledAfterSuccess)
         XCTAssertTrue(verifyingBehavior.calledAfterFailure)
     }
+    
+    func testErrorHandling() {
+        let exp1 = expectation(description: "async")
+        
+        let url = URL(string: "https://api.soryu2.com")!
+        let response = HTTPURLResponse(url: url, statusCode: 404, httpVersion: "1.1", headerFields: nil)
+        let session = MockURLSession(data: Data(), response: response, error: nil)
+        
+        var caughtError: Error?
+        
+        NetworkClient(baseURL: url, session: session)
+            .GET("/")
+            .withBehavior(ErrorHandlingRequestBehavior({ _, response, _ in
+                if response.statusCode == 404 {
+                    throw NetworkClientTestsError.fourohfour
+                }
+            }))
+            .sendRequest()
+            .catch({ (error) in
+                caughtError = error
+            })
+            .always {
+                exp1.fulfill()
+        }
 
+        waitForExpectations(timeout: 1)
+        
+        if
+            let error = caughtError as? NetworkClientTestsError,
+            case NetworkClientTestsError.fourohfour = error {
+            XCTAssert(true)
+        } else {
+            XCTFail()
+        }
+    }
+
+}
+
+enum NetworkClientTestsError: Error {
+    case fourohfour
 }
 
 fileprivate func response(to request: URLRequest, data: Data? = nil) -> (Data?, HTTPURLResponse?, Error?)  {

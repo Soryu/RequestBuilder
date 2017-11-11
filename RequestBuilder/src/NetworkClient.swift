@@ -32,8 +32,9 @@ public final class NetworkClient {
         
         let behavior = requestBuilder.behavior
         behavior.beforeSend(request: urlRequest)
-        return session.data(with: urlRequest).then({ (data, response) in
-            behavior.afterSuccess(request: urlRequest, response: response, result: data)
+        return session.data(with: urlRequest).then({ (data, response) -> (Data, HTTPURLResponse) in
+            try behavior.afterSuccess(request: urlRequest, response: response, result: data)
+            return (data, response)
         }).catch({ (error) in
             behavior.afterFailure(request: urlRequest, response: nil, error: error)
         })

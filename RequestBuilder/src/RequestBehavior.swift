@@ -5,10 +5,10 @@ import Foundation
 // * auth token (header)
 // * user agent (header)
 // * logging
+// * error handling
 
 // NOT for:
 // * JSON parsing (cannot change result of response)
-// * Error transformation (same)
 
 public protocol RequestBehavior {
     
@@ -16,7 +16,8 @@ public protocol RequestBehavior {
     
     func beforeSend(request: URLRequest)
     
-    func afterSuccess(request: URLRequest, response: HTTPURLResponse, result: Any?)
+    // TODO: result: `Data` or `Data?`
+    func afterSuccess(request: URLRequest, response: HTTPURLResponse, result: Any?) throws
     
     func afterFailure(request: URLRequest, response: HTTPURLResponse?, error: Error)
     
@@ -69,8 +70,8 @@ public struct CombinedRequestBehavior: RequestBehavior {
         behaviors.forEach({ $0.beforeSend(request: request) })
     }
     
-    public func afterSuccess(request: URLRequest, response: HTTPURLResponse, result: Any?) {
-        behaviors.forEach({ $0.afterSuccess(request: request, response: response, result: result) })
+    public func afterSuccess(request: URLRequest, response: HTTPURLResponse, result: Any?) throws {
+        try behaviors.forEach({ try $0.afterSuccess(request: request, response: response, result: result) })
     }
     
     public func afterFailure(request: URLRequest, response: HTTPURLResponse?, error: Error) {
@@ -103,3 +104,15 @@ public struct JSONRequestBehavior: RequestBehavior {
     public init() {}
 }
 
+public struct ErrorHandlingRequestBehavior: RequestBehavior {
+    
+    let block: ((URLRequest, HTTPURLResponse, Any?) throws -> Void)
+    public init(_ block: @escaping ((URLRequest, HTTPURLResponse, Any?) throws -> Void)) {
+        self.block = block
+    }
+    
+    public func afterSuccess(request: URLRequest, response: HTTPURLResponse, result: Any?) throws {
+        try block(request, response, result)
+    }
+    
+}
