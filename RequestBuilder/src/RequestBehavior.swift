@@ -105,8 +105,8 @@ public struct JSONRequestBehavior: RequestBehavior {
 
 public struct ErrorHandlingRequestBehavior: RequestBehavior {
     
-    let block: ((URLRequest, HTTPURLResponse, Any?) throws -> Void)
-    public init(_ block: @escaping ((URLRequest, HTTPURLResponse, Any?) throws -> Void)) {
+    let block: ((URLRequest, HTTPURLResponse, Data) throws -> Void)
+    public init(_ block: @escaping ((URLRequest, HTTPURLResponse, Data) throws -> Void)) {
         self.block = block
     }
     
