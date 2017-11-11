@@ -60,7 +60,7 @@ class VerifyingBehavior: RequestBehavior {
     func beforeSend(request: URLRequest) {
         calledBeforeSend = true
     }
-    func afterSuccess(request: URLRequest, response: HTTPURLResponse, result: Any?) {
+    func afterSuccess(request: URLRequest, response: HTTPURLResponse, data: Data) {
         calledAfterSuccess = true
     }
     

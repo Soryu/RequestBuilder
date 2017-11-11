@@ -16,8 +16,7 @@ public protocol RequestBehavior {
     
     func beforeSend(request: URLRequest)
     
-    // TODO: result: `Data` or `Data?`
-    func afterSuccess(request: URLRequest, response: HTTPURLResponse, result: Any?) throws
+    func afterSuccess(request: URLRequest, response: HTTPURLResponse, data: Data) throws
     
     func afterFailure(request: URLRequest, response: HTTPURLResponse?, error: Error)
     
@@ -30,7 +29,7 @@ public extension RequestBehavior {
     }
     
     func beforeSend(request: URLRequest) {}
-    func afterSuccess(request: URLRequest, response: HTTPURLResponse, result: Any?) {}
+    func afterSuccess(request: URLRequest, response: HTTPURLResponse, data: Data) {}
     func afterFailure(request: URLRequest, response: HTTPURLResponse?, error: Error) {}
     
 }
@@ -70,8 +69,8 @@ public struct CombinedRequestBehavior: RequestBehavior {
         behaviors.forEach({ $0.beforeSend(request: request) })
     }
     
-    public func afterSuccess(request: URLRequest, response: HTTPURLResponse, result: Any?) throws {
-        try behaviors.forEach({ try $0.afterSuccess(request: request, response: response, result: result) })
+    public func afterSuccess(request: URLRequest, response: HTTPURLResponse, data: Data) throws {
+        try behaviors.forEach({ try $0.afterSuccess(request: request, response: response, data: data) })
     }
     
     public func afterFailure(request: URLRequest, response: HTTPURLResponse?, error: Error) {
@@ -111,8 +110,8 @@ public struct ErrorHandlingRequestBehavior: RequestBehavior {
         self.block = block
     }
     
-    public func afterSuccess(request: URLRequest, response: HTTPURLResponse, result: Any?) throws {
-        try block(request, response, result)
+    public func afterSuccess(request: URLRequest, response: HTTPURLResponse, data: Data) throws {
+        try block(request, response, data)
     }
     
 }
