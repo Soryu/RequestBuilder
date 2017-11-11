@@ -6,14 +6,6 @@ class RequestBuilderTests: XCTestCase {
     static let baseURLString = "http://api.soryu2.net"
     let baseURL = URL(string: baseURLString)!
     
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
     func testGet() {
         let request = RequestBuilder
             .GET("get-endpoint", baseURL: baseURL)

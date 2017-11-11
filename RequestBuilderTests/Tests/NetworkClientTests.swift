@@ -3,13 +3,7 @@ import RequestBuilder
 
 class NetworkClientTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
+    let testURL = URL(string: "https://api.soryu2.net")!
     
     func testSimple() {
         let exp = expectation(description: "")
@@ -19,7 +13,7 @@ class NetworkClientTests: XCTestCase {
             return response(to: request, data: Data())
         }
         
-        let client = NetworkClient(baseURL: URL(string: "https://api.soryu2.com")!, session: session)
+        let client = NetworkClient(baseURL: testURL, session: session)
         
         client.GET("/foo").sendRequest()
             .then({ data, response in
@@ -34,11 +28,11 @@ class NetworkClientTests: XCTestCase {
     func testSimpleInsideOut() {
         let exp = expectation(description: "")
         
-        let baseURL = URL(string: "https://api.soryu2.com")!
+        let baseURL = testURL
         
         let session = VerifyingURLSession() { request in
             XCTAssert(request.allHTTPHeaderFields?.count == 0)
-            XCTAssert(request.url == URL(string: "https://api.soryu2.com/foo"))
+            XCTAssert(request.url == URL(string: "https://api.soryu2.net/foo"))
             return response(to: request, data: Data())
         }
         
@@ -68,7 +62,7 @@ class NetworkClientTests: XCTestCase {
             return jsonResponse(to: request, dict: expected)
         }
         
-        let client = NetworkClient(baseURL: URL(string: "https://api.soryu2.com")!, session: mockSession)
+        let client = NetworkClient(baseURL: testURL, session: mockSession)
 
         client.GET("/foo")
             .withQuery(["foo" : "bar"])
@@ -103,7 +97,7 @@ class NetworkClientTests: XCTestCase {
             return jsonResponse(to: request, dict: expected)
         }
         
-        let client = NetworkClient(baseURL: URL(string: "https://api.soryu2.com")!, session: mockSession)
+        let client = NetworkClient(baseURL: testURL, session: mockSession)
         
         client.GET("/foo")
             .withQuery(["foo" : "bar"])
@@ -126,7 +120,7 @@ class NetworkClientTests: XCTestCase {
     func _testLiveRequestChainWithLogin() {
         let exp = expectation(description: "")
         
-        let client = NetworkClient(baseURL: URL(string: "https://api.soryu2.com")!,
+        let client = NetworkClient(baseURL: testURL,
                                    session: URLSession(configuration: URLSessionConfiguration.ephemeral))
         
         let jsonIn = ["email": "requestbuilder@soryu2.net", "password": "secret"]
@@ -172,12 +166,12 @@ class NetworkClientTests: XCTestCase {
         let exp1 = expectation(description: "async")
 
         let session = MockURLSession(data: Data(),
-                                     response: HTTPURLResponse(url: URL(string: "https://api.soryu2.com")!,
+                                     response: HTTPURLResponse(url: testURL,
                                                                statusCode: 200, httpVersion: "1.1",
                                                                headerFields: nil),
                                      error: nil)
         
-        let client = NetworkClient(baseURL: URL(string: "https://api.soryu2.com")!, session: session)
+        let client = NetworkClient(baseURL: testURL, session: session)
 
         let verifyingBehavior = VerifyingBehavior()
         
@@ -199,7 +193,7 @@ class NetworkClientTests: XCTestCase {
         let exp1 = expectation(description: "async")
         
         let session = MockURLSession(data: nil, response: nil, error: NSError(domain: "", code: 1, userInfo: nil))
-        let client = NetworkClient(baseURL: URL(string: "https://api.soryu2.com")!, session: session)
+        let client = NetworkClient(baseURL: testURL, session: session)
         let verifyingBehavior = VerifyingBehavior()
         
         
@@ -220,13 +214,12 @@ class NetworkClientTests: XCTestCase {
     func testErrorHandling() {
         let exp1 = expectation(description: "async")
         
-        let url = URL(string: "https://api.soryu2.com")!
-        let response = HTTPURLResponse(url: url, statusCode: 404, httpVersion: "1.1", headerFields: nil)
+        let response = HTTPURLResponse(url: testURL, statusCode: 404, httpVersion: "1.1", headerFields: nil)
         let session = MockURLSession(data: Data(), response: response, error: nil)
         
         var caughtError: Error?
         
-        NetworkClient(baseURL: url, session: session)
+        NetworkClient(baseURL: testURL, session: session)
             .GET("/")
             .withBehavior(ErrorHandlingRequestBehavior({ _, response, _ in
                 if response.statusCode == 404 {
