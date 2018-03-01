@@ -13,7 +13,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/khanlou/Promise.git", .revision("2a4157075c390f447f412f52c8a18e298357d05f")),
+        .package(url: "https://github.com/Soryu/Promise.git", .branch("master")),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
