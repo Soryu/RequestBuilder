@@ -1,5 +1,6 @@
 import Foundation
 import Promise
+import Dispatch
 
 public typealias JSONType = Any // arrays and dicts
 
@@ -13,16 +14,19 @@ public final class NetworkClient {
     
     let session: URLSessionProtocol
     public let baseURL: URL
+    public let dispatchQueue: DispatchQueue
     
     let defaultRequestBehavior: RequestBehavior
     
     public init(baseURL: URL,
          session: URLSessionProtocol = URLSession.shared,
-         defaultRequestBehavior: RequestBehavior? = nil) {
+         defaultRequestBehavior: RequestBehavior? = nil,
+         dispatchQueue: DispatchQueue = DispatchQueue.main) {
         
         self.baseURL = baseURL
         self.session = session
         self.defaultRequestBehavior = defaultRequestBehavior ?? EmptyRequestBehavior()
+        self.dispatchQueue = dispatchQueue
     }
     
     private func _send(requestBuilder: RequestBuilder) -> Promise<(Data, HTTPURLResponse)> {
@@ -32,10 +36,10 @@ public final class NetworkClient {
         
         let behavior = requestBuilder.behavior
         behavior.beforeSend(request: urlRequest)
-        return session.data(with: urlRequest).then({ (data, response) -> (Data, HTTPURLResponse) in
+        return session.data(with: urlRequest).then(on: dispatchQueue, { (data, response) -> (Data, HTTPURLResponse) in
             try behavior.afterSuccess(request: urlRequest, response: response, data: data)
             return (data, response)
-        }).catch({ (error) in
+        }).catch(on: dispatchQueue, { (error) in
             behavior.afterFailure(request: urlRequest, response: nil, error: error)
         })
     }

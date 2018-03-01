@@ -28,7 +28,7 @@ public class ClientRequestBuilder: RequestBuilder {
             return Promise<JSONType>(error: error)
         }
         
-        return sendRequest().then({ data, response in
+        return sendRequest().then(on: client.dispatchQueue, { data, response in
             return try self.client.parseJSONReponse(response, data: data)
         })
     }
