@@ -1,5 +1,6 @@
 @testable import RequestBuilder
 import Promise
+import Foundation
 
 struct MockURLSessionError: Error {}
 
