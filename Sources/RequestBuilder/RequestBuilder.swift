@@ -34,6 +34,16 @@ public extension RequestBuilder {
         return rb
     }
 
+    static func PUT(_ endpoint: String, data: Data? = nil, baseURL: URL) -> RequestBuilder {
+        let rb = RequestBuilder(baseURL: baseURL, method: "PUT", endpoint: endpoint)
+
+        if let data = data {
+            rb.withBody(data)
+        }
+
+        return rb
+    }
+
 }
 
 // MARK: builder
