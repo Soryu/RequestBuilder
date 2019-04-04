@@ -7,6 +7,7 @@ public class RequestBuilder {
     private var body: Data?
     private (set) var behavior: RequestBehavior = EmptyRequestBehavior()
     private(set) var baseURL: URL
+    private(set) var headers = [String: String]()
 
     public init(baseURL: URL, method: String, endpoint: String) {
         self.baseURL       = baseURL
@@ -39,7 +40,7 @@ public extension RequestBuilder {
 // MARK: builder
 public extension RequestBuilder {
 
-    @discardableResult func withQuery(_ dictionary: Dictionary<String, String?>) -> Self {
+    @discardableResult func withQuery(_ dictionary: [String: String?]) -> Self {
         var queryItems = urlComponents.queryItems ?? [URLQueryItem]()
         queryItems.append(contentsOf: dictionary.compactMap { key, value -> URLQueryItem? in
             guard let value = value else { return nil }
@@ -59,11 +60,16 @@ public extension RequestBuilder {
         return self
     }
 
-    @discardableResult func withBody(_ data: Data) -> Self {
+    @discardableResult func withBody(_ data: Data?) -> Self {
         assert(["POST", "PUT"].contains(method))
         assert(body == nil)
         
         body = data
+        return self
+    }
+
+    @discardableResult func withHeader(key: String, value: String) -> Self {
+        headers[key] = value
         return self
     }
     
@@ -87,10 +93,14 @@ public extension RequestBuilder {
         if let body = body {
             request.httpBody = body
         }
-        
-        behavior.additionalHeaders.forEach({ (field, value) in
+
+        headers.forEach { (field, value) in
             request.addValue(value, forHTTPHeaderField: field)
-        })
+        }
+
+        behavior.additionalHeaders.forEach { (field, value) in
+            request.addValue(value, forHTTPHeaderField: field)
+        }
         
         return request
     }
