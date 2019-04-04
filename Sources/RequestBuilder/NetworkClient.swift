@@ -57,6 +57,10 @@ extension NetworkClient {
     public func POST(_ path: String) -> ClientRequestBuilder {
         return ClientRequestBuilder(for: self, method: "POST", endpoint: path)
     }
+
+    public func PUT(_ path: String) -> ClientRequestBuilder {
+        return ClientRequestBuilder(for: self, method: "PUT", endpoint: path)
+    }
     
 }
 
