@@ -1,7 +1,7 @@
 # RequestBuilder
 
 Originally inspired by http://khanlou.com/2017/01/request-behaviors/  
-Depends on and includes a copy of Soroush Khanlou’s lovely Promise library, see https://github.com/khanlou/Promise
+Depends on Soroush Khanlou’s lovely little Promise library, see https://github.com/khanlou/Promise
 
 
 ## Setup
@@ -14,6 +14,8 @@ swift package generate-xcodeproj
 
 
 ## Usage example
+
+This simple example sends a GET request to https://github.com/foo?foo=bar with `Accept` and `Content-Type` headers for JSON, parses the response into a `MyObject` class, and lets you deal with the object or potential errors in a chainable fashion.
 
 ```swift
 let client = NetworkClient(baseURL: URL(string: "https://github.com")!, defaultRequestBehavior: JSONRequestBehavior())
