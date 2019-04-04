@@ -4,6 +4,15 @@ Originally inspired by http://khanlou.com/2017/01/request-behaviors/
 Depends on and includes a copy of Soroush Khanlou’s lovely Promise library, see https://github.com/khanlou/Promise
 
 
+## Setup
+
+This project uses swift package manager. You can generate an Xcode project on the command line by running
+
+```
+swift package generate-xcodeproj 
+```
+
+
 ## Usage example
 
 ```swift
