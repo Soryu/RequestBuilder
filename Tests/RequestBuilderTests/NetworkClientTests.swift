@@ -148,7 +148,7 @@ class NetworkClientTests: XCTestCase {
                 
                 print("secrets: \(secrets.count)")
                 
-                secrets.flatMap { secretDict -> String? in
+                secrets.compactMap { secretDict -> String? in
                     return secretDict["title"] as? String
                 }.forEach { title in
                     print("secret: \(title)")

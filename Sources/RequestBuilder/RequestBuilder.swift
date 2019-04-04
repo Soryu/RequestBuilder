@@ -41,7 +41,7 @@ public extension RequestBuilder {
 
     @discardableResult func withQuery(_ dictionary: Dictionary<String, String?>) -> Self {
         var queryItems = urlComponents.queryItems ?? [URLQueryItem]()
-        queryItems.append(contentsOf: dictionary.flatMap { key, value -> URLQueryItem? in
+        queryItems.append(contentsOf: dictionary.compactMap { key, value -> URLQueryItem? in
             guard let value = value else { return nil }
             return URLQueryItem(name: key, value: value)
         })

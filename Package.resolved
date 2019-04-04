@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/khanlou/Promise.git",
         "state": {
           "branch": null,
-          "revision": "790c34cb40c9e49a0dd4450a92108d981c962893",
-          "version": null
+          "revision": "be692df0664c8f8e764a931a7ecccb76d608b90a",
+          "version": "2.0.3"
         }
       }
     ]
