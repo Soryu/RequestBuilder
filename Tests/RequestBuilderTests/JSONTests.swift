@@ -46,6 +46,39 @@ class JSONTests: XCTestCase {
         waitForExpectations(timeout: 1, handler: nil)
     }
 
+    func testJSONCodableSimple() {
+        let exp = expectation(description: "")
+
+        let testJSONData = "{\"a\":\"b\"}".data(using: .utf8)!
+
+        let mockSession = VerifyingURLSession() { request in
+            let headers = request.allHTTPHeaderFields!
+            XCTAssertEqual(headers.count, 2)
+            XCTAssertEqual(headers["Content-Type"], "application/json")
+            XCTAssertEqual(headers["Accept"], "application/json")
+
+            return response(to: request, data: testJSONData)
+        }
+
+        let client = NetworkClient(baseURL: URL(string: "https://github.com")!,
+                                   session: mockSession,
+                                   defaultRequestBehavior: JSONRequestBehavior())
+
+        client.GET("/foo")
+            .withQuery(["foo" : "bar"])
+            .sendRequest()
+            .then({ result in
+                return try JSONDecoder().decode(MyObject.self, from: result.data)
+            }).then({ obj in
+                XCTAssertEqual(obj.a, "b")
+                exp.fulfill()
+            }).catch { error in
+                print("error: \(error)")
+                exp.fulfill()
+        }
+        waitForExpectations(timeout: 1, handler: nil)
+    }
+
 
     func testJSONCodable() {
         let exp = expectation(description: "")
