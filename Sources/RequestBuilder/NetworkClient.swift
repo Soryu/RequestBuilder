@@ -2,12 +2,9 @@ import Foundation
 import Promise
 import Dispatch
 
-public typealias JSONType = Any // arrays and dicts
-
 public enum NetworkClientError: Error {
     case MalformedRequest
     case InvalidResponse
-    case InvalidJSON
 }
 
 public final class NetworkClient {
@@ -29,9 +26,9 @@ public final class NetworkClient {
         self.dispatchQueue = dispatchQueue
     }
     
-    private func _send(requestBuilder: RequestBuilder) -> Promise<(Data, HTTPURLResponse)> {
+    private func _send(requestBuilder: RequestBuilder) -> DataResponsePromise {
         guard let urlRequest = requestBuilder.request() else {
-            return Promise<(Data, HTTPURLResponse)>(error: NetworkClientError.MalformedRequest)
+            return DataResponsePromise(error: NetworkClientError.MalformedRequest)
         }
         
         let behavior = requestBuilder.behavior
@@ -51,11 +48,11 @@ public final class NetworkClient {
 extension NetworkClient {
     
     public func GET(_ path: String) -> ClientRequestBuilder {
-        return ClientRequestBuilder(for: self, method: "GET", endpoint: path)
+        return ClientRequestBuilder(for: self, baseURL: baseURL, method: "GET", endpoint: path)
     }
     
-    public func POST(_ path: String) -> ClientRequestBuilder {
-        return ClientRequestBuilder(for: self, method: "POST", endpoint: path)
+    public func POST(_ path: String, data: Data? = nil) -> ClientRequestBuilder {
+        return ClientRequestBuilder(for: self, baseURL: baseURL, method: "POST", endpoint: path).withBody(data)
     }
 
     public func PUT(_ path: String) -> ClientRequestBuilder {
@@ -65,27 +62,12 @@ extension NetworkClient {
 }
 
 
-// MARK: NetworkClientProtocol
-extension NetworkClient : NetworkClientProtocol {
+// MARK: NetworkClientSendProtocol
+extension NetworkClient : NetworkClientSendProtocol {
 
-    public func send(requestBuilder: RequestBuilder) -> Promise<(Data, HTTPURLResponse)> {
+    public func send(requestBuilder: RequestBuilder) -> DataResponsePromise {
         assert(baseURL == requestBuilder.baseURL)
         return _send(requestBuilder: requestBuilder.withBehavior(defaultRequestBehavior))
-    }
-    
-    public func parseJSONReponse(_ response: HTTPURLResponse, data: Data) throws -> Promise<JSONType> {
-        // TODO error handling
-        if response.statusCode >= 400 {
-            let info = [NSLocalizedDescriptionKey: "Request/Server error " + (String(data: data, encoding: .utf8) ?? "?")]
-            throw NSError(domain: "NetworkClient", code: 10000 + response.statusCode, userInfo: info)
-        }
-        
-        let value = try JSONSerialization.jsonObject(with: data) // may throw, which is fine with us (rejects promise)
-        return Promise<JSONType>(value: value)
-    }
-    
-    public func JSONData(for dict: Dictionary<String, Any>) throws -> Data? {
-        return try JSONSerialization.data(withJSONObject: dict, options: [])
     }
     
 }

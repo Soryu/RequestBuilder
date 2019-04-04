@@ -97,7 +97,7 @@ public struct AuthenticatingRequestBehavior: RequestBehavior {
 public struct JSONRequestBehavior: RequestBehavior {
     
     public var additionalHeaders: [String : String] {
-        return ["Content-Type": "application/json"]
+        return ["Content-Type": "application/json", "Accept": "application/json"]
     }
     
     public init() {}
