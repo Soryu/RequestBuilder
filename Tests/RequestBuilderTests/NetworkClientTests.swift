@@ -48,75 +48,9 @@ class NetworkClientTests: XCTestCase {
         
         waitForExpectations(timeout: 1, handler: nil)
     }
-    
-    func testJSONManual() {
-        let exp = expectation(description: "")
-
-        let expected = ["foo": "bar", "baz": "blubb"]
         
-        let mockSession = VerifyingURLSession() { request in
-            
-            XCTAssert(request.allHTTPHeaderFields!.first!.key == "Content-Type")
-            XCTAssert(request.allHTTPHeaderFields!.first!.value == "application/json")
-            
-            return jsonResponse(to: request, dict: expected)
-        }
-        
-        let client = NetworkClient(baseURL: testURL, session: mockSession)
-
-        client.GET("/foo")
-            .withQuery(["foo" : "bar"])
-            .withBehavior(JSONRequestBehavior())
-            .sendRequest()
-            .then({ data, response in
-                return try client.parseJSONReponse(response, data: data)
-            }).then({ json in
-                guard let json = json as? Dictionary<String, String> else {
-                    XCTFail()
-                    throw NetworkClientError.InvalidJSON
-                }
-                XCTAssert(json == expected)
-                exp.fulfill()
-            }).catch { error in
-                print("error: \(error)")
-                exp.fulfill()
-            }
-        waitForExpectations(timeout: 1, handler: nil)
-    }
-    
-    func testJSONConvenience() {
-        let exp = expectation(description: "")
-        
-        let expected = ["foo": "bar", "baz": "blubb"]
-        
-        let mockSession = VerifyingURLSession() { request in
-            
-            XCTAssert(request.allHTTPHeaderFields!.first!.key == "Content-Type")
-            XCTAssert(request.allHTTPHeaderFields!.first!.value == "application/json")
-            
-            return jsonResponse(to: request, dict: expected)
-        }
-        
-        let client = NetworkClient(baseURL: testURL, session: mockSession)
-        
-        client.GET("/foo")
-            .withQuery(["foo" : "bar"])
-            .sendJSONRequest()
-            .then({ json in
-                guard let json = json as? Dictionary<String, String> else {
-                    XCTFail()
-                    throw NetworkClientError.InvalidJSON
-                }
-                XCTAssert(json == expected)
-                exp.fulfill()
-            }).catch { error in
-                print("error: \(error)")
-                exp.fulfill()
-        }
-        waitForExpectations(timeout: 1, handler: nil)
-    }
-    
     // commented out, do not make live requests in tests. also that web service does not exist :p
+    /*
     func _testLiveRequestChainWithLogin() {
         let exp = expectation(description: "")
         
@@ -148,7 +82,7 @@ class NetworkClientTests: XCTestCase {
                 
                 print("secrets: \(secrets.count)")
                 
-                secrets.flatMap { secretDict -> String? in
+                secrets.compactMap { secretDict -> String? in
                     return secretDict["title"] as? String
                 }.forEach { title in
                     print("secret: \(title)")
@@ -161,6 +95,7 @@ class NetworkClientTests: XCTestCase {
         }
         waitForExpectations(timeout: 8)
     }
+ */
     
     func testBehaviorsBeingCalledSuccess() {
         let exp1 = expectation(description: "async")
@@ -246,33 +181,3 @@ class NetworkClientTests: XCTestCase {
     }
 
 }
-
-enum NetworkClientTestsError: Error {
-    case fourohfour
-}
-
-fileprivate func response(to request: URLRequest, data: Data? = nil) -> (Data?, HTTPURLResponse?, Error?)  {
-    let response = HTTPURLResponse(url: request.url!,
-                                   statusCode: 200,
-                                   httpVersion: nil,
-                                   headerFields: [:])
-    return (data, response, nil)
-}
-
-fileprivate func jsonResponse(to request: URLRequest, dict: Dictionary<String, Any?>) -> (Data?, HTTPURLResponse?, Error?)  {
-    guard let data = try? JSONSerialization.data(withJSONObject: dict, options: []) else { fatalError() }
-    return response(to: request, data: data)
-}
-
-fileprivate func response(to request: URLRequest, error: Error, statusCode: Int?) -> (Data?, HTTPURLResponse?, Error?)  {
-    guard let statusCode = statusCode else {
-        return (nil, nil, error)
-    }
-    
-    let response = HTTPURLResponse(url: request.url!,
-                                   statusCode: statusCode,
-                                   httpVersion: nil,
-                                   headerFields: [:])
-    return (nil, response, error)
-}
-

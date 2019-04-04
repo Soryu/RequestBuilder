@@ -7,15 +7,16 @@ Depends on and includes a copy of Soroush Khanlou’s lovely Promise library, se
 ## Usage example
 
 ```swift
-let client = NetworkClient(baseURL: URL(string: "https://github.com")!)        
-client.GET("/foo")
-    .withQuery(["foo" : "bar"])
-    .sendJSONRequest()
-    .then({ json in
-        guard let json = json as? Dictionary<String, String> else {
-            throw NetworkClientError.InvalidJSON
-        }
+let client = NetworkClient(baseURL: URL(string: "https://github.com")!, defaultRequestBehavior: JSONRequestBehavior())
 
-        // ... maybe do something with the JSON?
-    })
+client.GET("/foo")
+  .withQuery(["foo" : "bar"])
+  .sendRequest()
+  .then({ result in
+      return try JSONDecoder().decode(MyObject.self, from: result.data)
+  }).then({ object in
+    // do something with object
+  }).catch { error in
+      print("error: \(error)")
+  }
 ```
